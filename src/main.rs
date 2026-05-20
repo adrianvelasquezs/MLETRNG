@@ -13,9 +13,9 @@ fn main() {
     // Ejecutar y medir cada configuración
     let configs: &[(&str, Box<dyn Fn() -> Vec<u8>>)] = &[
         ("Original  (2W + 2S)", Box::new(|| Letrng::new().generate_bytes(n_bytes))),
-        ("Modificado(2W + 1S)", Box::new(|| LetrngThreeThread::new().generate_bytes(n_bytes))),
-        ("5 hilos   (3W + 2S)", Box::new(|| LetrngFiveThread::new().generate_bytes(n_bytes))),
-        ("6 hilos   (3W + 3S)", Box::new(|| LetrngSixThread::new().generate_bytes(n_bytes))),
+        ("Mod 3H    (2W + 1S)", Box::new(|| LetrngThreeThread::new().generate_bytes(n_bytes))),
+        ("Mod 5H    (3W + 2S)", Box::new(|| LetrngFiveThread::new().generate_bytes(n_bytes))),
+        ("Mod 6H    (3W + 3S)", Box::new(|| LetrngSixThread::new().generate_bytes(n_bytes))),
     ];
 
     let mut resultados: Vec<(String, Stats, Duration)> = Vec::new();
